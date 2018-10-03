@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 	<title>Soloäventyr - Redigera</title>
 	<link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans" rel="stylesheet"> 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav id="navbar">
@@ -28,6 +28,6 @@
 
 ?>
 </main>
-<script src="navbar.js"></script>
+<script src="js/navbar.js"></script>
 </body>
 </html>
