@@ -19,6 +19,7 @@
 <main class="content">
 	<section>
 		<h1>Spela</h1>
+<!--
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit hic aliquid nostrum quibusdam veritatis? Eaque accusantium odit id deserunt, quae minima adipisci nesciunt illum ipsa ea placeat, earum laboriosam corrupti.</p>
 		<footer class="gotopagelinks">
 			<p>
@@ -26,16 +27,29 @@
 				<a href="play.php?page=2">Gå till sidan</a>
 			</p>
 		</footer>
+-->
 <?php
 	include_once 'include/dbinfo.php';
 
 	// PDO
+
+	$dbh = new PDO('mysql:host=localhost;dbname=te16;charset=utf8mb4', $dbuser, $dbpass);
+
+	echo "<pre>" . print_r($dbh,1) . "</pre>";
 
 	if (isset($_GET['page'])) {
 		// TODO load requested page from DB using GET
 		// prio before session
 		// set session to remember
 		$filteredPage = filter_input(INPUT_GET, "page", FILTER_VALIDATE_INT);
+
+		$stmt = $dbh->prepare("SELECT * FROM story WHERE id = :id");
+		$stmt->bindParam(':id', $filteredPage);
+		$stmt->execute();
+
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+		echo "<pre>" . print_r($row,1) . "</pre>";
 
 		echo "<p>Requested page " . $filteredPage . "</p>";
 	} elseif(isset($_SESSION['page'])) {
