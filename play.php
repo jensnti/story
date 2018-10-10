@@ -32,15 +32,10 @@
 	include_once 'include/dbinfo.php';
 
 	// PDO
-
 	$dbh = new PDO('mysql:host=localhost;dbname=te16;charset=utf8mb4', $dbuser, $dbpass);
-
-	echo "<pre>" . print_r($dbh,1) . "</pre>";
 
 	if (isset($_GET['page'])) {
 		// TODO load requested page from DB using GET
-		// prio before session
-		// set session to remember
 		$filteredPage = filter_input(INPUT_GET, "page", FILTER_VALIDATE_INT);
 
 		$stmt = $dbh->prepare("SELECT * FROM story WHERE id = :id");
@@ -51,7 +46,18 @@
 
 		echo "<pre>" . print_r($row,1) . "</pre>";
 
-		echo "<p>Requested page " . $filteredPage . "</p>";
+		// echo "<p>" . $row['text'] . "</p>";
+
+		$stmt = $dbh->prepare("SELECT * FROM storylinks WHERE storyid = :id");
+		$stmt->bindParam(':id', $filteredPage);
+		$stmt->execute();
+
+		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);		
+
+		foreach ($row as $val) {
+			echo "<a href=\"?page=" . $val['target'] . "\">" . $val['text'] . "</a>";
+		}
+
 	} elseif(isset($_SESSION['page'])) {
 		// TODO load page from db
 		// use for returning player / cookie
