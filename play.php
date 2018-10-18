@@ -54,6 +54,8 @@
 
 		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);		
 
+		echo "<pre>" . print_r($row,1) . "</pre>";
+
 		foreach ($row as $val) {
 			echo "<a href=\"?page=" . $val['target'] . "\">" . $val['text'] . "</a>";
 		}
