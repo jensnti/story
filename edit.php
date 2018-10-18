@@ -97,6 +97,8 @@
 		$stmt->bindParam(':place', $filteredPlace);
 		$stmt->execute();
 
+		header('location: edit.php');
+
 	}
 	elseif(isset($_POST['update'])) {
 
@@ -108,6 +110,8 @@
 		$stmt->bindParam(':place', $filteredPlace);
 		$stmt->bindParam(':id', $filteredId);
 		$stmt->execute();
+
+		header('location: edit.php');
 	}
 ?>
 	<section>
