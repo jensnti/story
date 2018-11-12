@@ -17,7 +17,7 @@
 <main class="content">
 	<section>
 		<h1>Spela</h1>
-		<p>För att starta äventyret, klicka <a href="play?page=1" title="Starta spelet">här</a></p>
+		<p>För att starta äventyret, klicka <a href="play.php?page=1" title="Starta spelet">här</a></p>
 <?php
 	include_once 'include/dbinfo.php';
 
