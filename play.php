@@ -7,8 +7,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">  
 	<title>Soloäventyr - Spela</title>
-	<link href="https://fonts.googleapis.com/css?family=Merriweather|Merriweather+Sans" rel="stylesheet"> 
-	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav id="navbar">
@@ -19,15 +17,7 @@
 <main class="content">
 	<section>
 		<h1>Spela</h1>
-<!--
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit hic aliquid nostrum quibusdam veritatis? Eaque accusantium odit id deserunt, quae minima adipisci nesciunt illum ipsa ea placeat, earum laboriosam corrupti.</p>
-		<footer class="gotopagelinks">
-			<p>
-				<a href="play.php?page=1">Nästa sida</a>
-				<a href="play.php?page=2">Gå till sidan</a>
-			</p>
-		</footer>
--->
+		<p>För att starta äventyret, klicka <a href="play?page=1" title="Starta spelet">här</a></p>
 <?php
 	include_once 'include/dbinfo.php';
 
